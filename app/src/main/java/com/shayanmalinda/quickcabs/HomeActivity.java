@@ -17,4 +17,9 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this,ProfileActivity.class);
         startActivity(intent);
     }
+
+    public void hire(View v){
+        Intent intent = new Intent(this,HireActivity.class);
+        startActivity(intent);
+    }
 }

@@ -28,7 +28,9 @@
     <string name="phoneNumber">Mobile : 0123456789</string>
     <string name="emailaddress">Email : jerrymiller@gmail.com</string>
     <string name="logout">Logout</string>
-    <string name="title_activity_maps">Map</string>
-
+    <string name="enterdestination">Enter Destination</string>
+    <string name="enterpickuplocation">Enter a Pickup Location</string>
+    <string name="search">Search</string>
+    <string name="selectvehicle">Select Vehicle type</string>
 
 </resources>
