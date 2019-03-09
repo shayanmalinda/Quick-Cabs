@@ -74,7 +74,8 @@
                     android:layout_height="100dp"
                     android:background="@drawable/bg_shape3"
                     android:padding="20dp"
-                    android:src="@drawable/ic_timer_black_24dp" />
+                    android:src="@drawable/ic_timer_black_24dp"
+                    android:onClick="SheduleACab"/>
 
                 <TextView
                     android:layout_width="match_parent"

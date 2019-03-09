@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SheduleActivity"></activity>
+        <activity android:name=".ChooseTimeActivity"></activity>
+        <activity android:name=".ChooseDateActivity" />
+        <activity android:name=".SheduleActivity" />
         <activity android:name=".HireActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

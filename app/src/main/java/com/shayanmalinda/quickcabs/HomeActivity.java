@@ -22,4 +22,9 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(this,HireActivity.class);
         startActivity(intent);
     }
+
+    public void SheduleACab(View v){
+        Intent intent = new Intent(this,SheduleActivity.class);
+        startActivity(intent);
+    }
 }

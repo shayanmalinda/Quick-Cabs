@@ -29,7 +29,8 @@
                 android:hint="@string/enterpickuplocation"
                 android:background="@drawable/edit_text_background"
                 android:padding="15dp"
-                android:inputType="none"/>
+                android:inputType="none"
+                android:drawableRight="@drawable/ic_my_location_black_24dp"/>
 
         </LinearLayout>
 

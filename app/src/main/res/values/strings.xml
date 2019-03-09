@@ -32,5 +32,8 @@
     <string name="enterpickuplocation">Enter a Pickup Location</string>
     <string name="search">Search</string>
     <string name="selectvehicle">Select Vehicle type</string>
+    <string name="selectadate">Select A Date</string>
+    <string name="selectatime">Select Time</string>
+
 
 </resources>
