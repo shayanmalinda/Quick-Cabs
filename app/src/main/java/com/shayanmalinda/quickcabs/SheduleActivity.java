@@ -11,6 +11,7 @@ public class SheduleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shedule);
+        setTitle(R.string.sheduledhire);
     }
     public void ChooseDate(View v){
         Intent intent = new Intent(this,ChooseDateActivity.class);
