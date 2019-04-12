@@ -10,6 +10,7 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">LOGIN</string>
+    <string name="edit">Edit</string>
     <string name="forgetpassword">Forget Password?</string>
     <string name="rememberme">Remember me</string>
     <string name="signup">SIGNUP</string>

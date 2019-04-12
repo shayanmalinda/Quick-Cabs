@@ -35,7 +35,8 @@
                 android:layout_height="30dp"
                 android:src="@drawable/ic_edit_black_24dp"
                 android:clickable="true"
-                android:scaleType="fitEnd"/>
+                android:scaleType="fitEnd"
+                android:onClick="EditUserDetails"/>
 
         </RelativeLayout>
 

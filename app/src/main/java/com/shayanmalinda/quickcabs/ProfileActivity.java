@@ -40,4 +40,9 @@ public class ProfileActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
+
+    public void EditUserDetails(View v){
+        Intent intent = new Intent(this,EditProfileActivity.class);
+        startActivity(intent);
+    }
 }
