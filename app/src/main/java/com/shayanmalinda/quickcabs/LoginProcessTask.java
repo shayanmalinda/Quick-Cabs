@@ -78,7 +78,7 @@ public class LoginProcessTask extends AsyncTask<String,Void,String> {
                 jsonObject = jsonArray.getJSONObject(i);
                 data[i] = jsonObject.getString("password"); // column name
                 if(data[i].equals(params[1])){
-                    flag = "success";
+                    flag = params[0];
                 }
 
             }
@@ -98,8 +98,10 @@ public class LoginProcessTask extends AsyncTask<String,Void,String> {
     @Override
     protected void onPostExecute(String result) {
 
-        if(result=="success"){
-            ctx.startActivity(new Intent(ctx, HomeActivity.class));
+        if(result!=null){
+            Intent intent = new Intent(ctx, HomeActivity.class);
+            intent.putExtra("username",result);
+            ctx.startActivity(intent);
         }
         else{
             Toast.makeText(ctx, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
