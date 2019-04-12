@@ -13,6 +13,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -92,8 +106,19 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void login(View v){
-        Intent intent = new Intent(this,HomeActivity.class);
-        startActivity(intent);
+
+        EditText etusername = findViewById(R.id.loginusername);
+        EditText etpassword = findViewById(R.id.loginpassword);
+        String username = etusername.getText().toString();
+        String password = etpassword.getText().toString();
+
+        if(username.isEmpty() || password.isEmpty()){
+            Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            LoginProcessTask backgroundTask=new LoginProcessTask(this);
+            backgroundTask.execute(username,password);
+        }
 
     }
 
