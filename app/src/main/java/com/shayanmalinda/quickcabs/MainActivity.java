@@ -29,6 +29,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -122,15 +123,26 @@ public class MainActivity extends AppCompatActivity
         String username = etusername.getText().toString();
         String password = etpassword.getText().toString();
 
+        byte[] pass = etpassword.getText().toString().getBytes();
+        BigInteger passEncrypt = null;
+
+        try{
+            passEncrypt = new BigInteger(1, md5.encryptMD5(pass));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        String passEncryptString = passEncrypt.toString();
+
         if(username.isEmpty() || password.isEmpty()){
             Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
         }
         else{
             LoginProcessTask backgroundTask=new LoginProcessTask(this);
-            backgroundTask.execute(username,password);
+//            backgroundTask.execute(username,password);
+            backgroundTask.execute(username,passEncryptString);
 
         }
-
     }
 
     public void register(View v){

@@ -104,4 +104,10 @@ public class EditProfileActivity extends AppCompatActivity {
 
         studentRecordUpdateClass.execute(username,email,phone);
     }
+
+    public void changePassword(View v){
+        Intent intent = new Intent(this,ChangePasswordActivity.class);
+        intent.putExtra("username",username);
+        startActivity(intent);
+    }
 }

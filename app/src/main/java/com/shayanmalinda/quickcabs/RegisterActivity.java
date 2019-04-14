@@ -15,6 +15,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -32,21 +33,32 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         setTitle(R.string.signup2);
+    }
+
+    public void signup(View v) {
 
         username = (EditText) findViewById(R.id.username);
         email = (EditText) findViewById(R.id.email);
         phone = (EditText) findViewById(R.id.phone);
         pass1 = (EditText) findViewById(R.id.pass1);
         pass2 = (EditText) findViewById(R.id.pass2);
-    }
-
-    public void signup(View v) {
 
         strUsername = username.getText().toString();
         strEmail = email.getText().toString();
         strPhone = phone.getText().toString();
         strPass1 = pass1.getText().toString();
         strPass2 = pass2.getText().toString();
+
+        byte[] pass = pass1.getText().toString().getBytes();
+        BigInteger passEncrypt = null;
+
+        try{
+            passEncrypt = new BigInteger(1, md5.encryptMD5(pass));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        String passEncryptString = passEncrypt.toString();
 //        String ServerURL = "http://idexserver.tk/b05/shayan/quickcabs/login/add.php";
 
         if(strUsername.isEmpty()){
@@ -70,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 String method="register";
                 LoginBackgroundTask backgroundTask=new LoginBackgroundTask(this);
-                backgroundTask.execute(method,strUsername,strEmail,strPhone,strPass1);
+                backgroundTask.execute(method,strUsername,strEmail,strPhone,passEncryptString);
 
                 Intent intent = new Intent(this,MainActivity.class);
                 startActivity(intent);

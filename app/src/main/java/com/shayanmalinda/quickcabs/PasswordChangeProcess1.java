@@ -18,13 +18,13 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class LoginProcessTask extends AsyncTask<String,Void,String> {
+ public class PasswordChangeProcess1 extends AsyncTask<String,Void,String> {
 
     ProgressDialog progressDialog;
-
+    String newpassword = null;
 
     Context ctx;
-    LoginProcessTask(Context ctx)
+    PasswordChangeProcess1(Context ctx)
     {
         this.ctx=ctx;
     }
@@ -84,6 +84,7 @@ public class LoginProcessTask extends AsyncTask<String,Void,String> {
 
                 if(data[i].equals(params[1])){
                     flag = params[0];
+                    newpassword = params[2];
                 }
 
             }
@@ -105,14 +106,19 @@ public class LoginProcessTask extends AsyncTask<String,Void,String> {
     @Override
     protected void onPostExecute(String result) {
 
+
         progressDialog.dismiss();
         if(result!=null){
-            Intent intent = new Intent(ctx, HomeActivity.class);
-            intent.putExtra("username",result);
-            ctx.startActivity(intent);
+//            Intent intent = new Intent(ctx, PasswordChangeProcess2.class);
+//            intent.putExtra("username",result);
+//            intent.putExtra("newpassword",newpassword);
+//            ctx.startActivity(intent);
+
+            PasswordChangeProcess2 p = new PasswordChangeProcess2();
+            p.resume(result,newpassword);
         }
         else{
-            Toast.makeText(ctx, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ctx, "Old Password is Incorrect", Toast.LENGTH_SHORT).show();
         }
 
     }
