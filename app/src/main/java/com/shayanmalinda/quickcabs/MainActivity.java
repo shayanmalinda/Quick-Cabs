@@ -1,5 +1,6 @@
 package com.shayanmalinda.quickcabs;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.AlphaAnimation;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +35,8 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,8 +113,10 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public void login(View v){
+//    private AlphaAnimation buttonClick = new AlphaAnimation(0.1F, 0.5F);
 
+    public void login(View v){
+//        v.startAnimation(buttonClick);
         EditText etusername = findViewById(R.id.loginusername);
         EditText etpassword = findViewById(R.id.loginpassword);
         String username = etusername.getText().toString();

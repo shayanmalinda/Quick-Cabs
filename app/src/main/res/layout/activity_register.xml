@@ -150,7 +150,7 @@
                     android:backgroundTint="@color/colorAccent"
                     android:textColor="@color/whiteText"
                     android:text="@string/signup"
-                    android:background="@drawable/edit_text_background"
+                    android:background="@drawable/custom_button"
                     android:textSize="15dp"
                     android:layout_weight="1"
                     android:onClick="signup"/>

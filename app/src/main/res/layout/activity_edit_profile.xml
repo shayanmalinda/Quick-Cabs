@@ -36,13 +36,15 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1.2"
+                    android:layout_weight="2"
                     android:text="@string/username"
-                    android:gravity="center"
+                    android:gravity="bottom|center"
+                    android:padding="15dp"
                     android:textStyle="bold"
                     android:textSize="18sp"/>
 
                 <EditText
+                    android:id="@+id/editProfileUsername"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:background="@drawable/edit_text_background"
@@ -64,13 +66,15 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1.2"
+                    android:layout_weight="2"
                     android:text="@string/email"
-                    android:gravity="center"
+                    android:gravity="bottom|center"
+                    android:padding="15dp"
                     android:textStyle="bold"
                     android:textSize="18sp"/>
 
                 <EditText
+                    android:id="@+id/editProfileEmail"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:background="@drawable/edit_text_background"
@@ -91,13 +95,15 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1.2"
+                    android:layout_weight="2"
                     android:text="@string/phone"
-                    android:gravity="center"
+                    android:gravity="bottom|center"
+                    android:padding="15dp"
                     android:textStyle="bold"
                     android:textSize="18sp"/>
 
                 <EditText
+                    android:id="@+id/editProfilePhone"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:background="@drawable/edit_text_background"
@@ -110,34 +116,34 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.9"
+                android:gravity="center"
+                android:orientation="vertical">
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <TextView
+                <Button
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.2"
-                    android:text="@string/password"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textSize="18sp"/>
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textColor="@color/whiteText"
+                    android:text="Change Password"
                     android:background="@drawable/edit_text_background"
-                    android:padding="10dp"
-                    android:textSize="16dp"
-                    android:textColor="@color/blackText"
-                    android:layout_weight="1"/>
+                    android:textSize="18dp"
+                    android:padding="12dp"
+                    android:textAllCaps="false"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.7"
+                android:layout_weight="0.4"
                 android:gravity="center">
             </LinearLayout>
 
@@ -154,11 +160,12 @@
                     android:layout_height="match_parent"
                     android:backgroundTint="@color/colorAccent"
                     android:textColor="@color/whiteText"
-                    android:text="@string/edit"
+                    android:text="Save"
                     android:background="@drawable/edit_text_background"
                     android:textSize="18dp"
                     android:padding="12dp"
-                    android:onClick="edit"/>
+                    android:onClick="saveDetails"
+                    android:textAllCaps="false"/>
 
             </LinearLayout>
 

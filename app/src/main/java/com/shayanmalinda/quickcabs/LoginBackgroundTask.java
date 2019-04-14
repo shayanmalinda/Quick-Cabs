@@ -1,5 +1,6 @@
 package com.shayanmalinda.quickcabs;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.EditText;
@@ -28,13 +29,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class LoginBackgroundTask extends AsyncTask<String,Void,String> {
+public class    LoginBackgroundTask extends AsyncTask<String,Void,String> {
+    ProgressDialog progressDialog;
+
 
     Context ctx;
-    LoginBackgroundTask(Context ctx)
-    {
-        this.ctx=ctx;
-    }
+        LoginBackgroundTask(Context ctx)
+        {
+            this.ctx=ctx;
+        }
 
 
     protected String doInBackground(String... params) {
@@ -92,10 +95,14 @@ public class LoginBackgroundTask extends AsyncTask<String,Void,String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
+        progressDialog = ProgressDialog.show(ctx,"Please Wait",null,true,true);
+
     }
 
     @Override
     protected void onPostExecute(String result) {
+        progressDialog.dismiss();
+
         Toast.makeText(ctx,result,Toast.LENGTH_LONG).show();
     }
 

@@ -12,6 +12,10 @@ import android.widget.TextView;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    String email = null;
+    String phone = null;
+    String username = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,9 +28,9 @@ public class ProfileActivity extends AppCompatActivity {
         super.onResume();
 
         Bundle extras = getIntent().getExtras();
-        String email = extras.getString("email");
-        String phone = extras.getString("phone");
-        String username = extras.getString("username");
+        email = extras.getString("email");
+        phone = extras.getString("phone");
+        username = extras.getString("username");
         TextView email2 = findViewById(R.id.profileEmail);
         TextView phone2 = findViewById(R.id.profileMobile);
         TextView username2 = findViewById(R.id.profileusername);
@@ -43,6 +47,9 @@ public class ProfileActivity extends AppCompatActivity {
 
     public void EditUserDetails(View v){
         Intent intent = new Intent(this,EditProfileActivity.class);
+        intent.putExtra("username",username);
+        intent.putExtra("email",email);
+        intent.putExtra("phone",phone);
         startActivity(intent);
     }
 }

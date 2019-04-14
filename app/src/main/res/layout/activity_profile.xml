@@ -84,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center">
+                android:gravity="top">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -103,7 +103,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center">
+                android:gravity="top">
 
                 <TextView
                     android:id="@+id/profileEmail"
@@ -123,7 +123,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center">
+                android:gravity="top">
 
                 <TextView
                     android:id="@+id/profileMobile"
@@ -144,19 +144,39 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.7"
-                android:gravity="bottom">
+                android:layout_weight="0.4"
+                android:gravity="bottom"
+                android:orientation="vertical">
 
                 <Button
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:textColor="@color/whiteText"
+                    android:text="Edit Profile"
+                    android:background="@drawable/edit_text_background"
+                    android:textSize="18dp"
+                    android:padding="12dp"
+                    android:onClick="EditUserDetails"
+                    android:layout_weight="1"
+                    android:textAllCaps="false"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.3"></LinearLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:backgroundTint="@color/colorAccent"
                     android:textColor="@color/whiteText"
                     android:text="@string/logout"
                     android:background="@drawable/edit_text_background"
                     android:textSize="18dp"
                     android:padding="12dp"
-                    android:onClick="logout"/>
+                    android:onClick="logout"
+                    android:layout_weight="1"/>
 
             </LinearLayout>
 

@@ -1,5 +1,6 @@
 package com.shayanmalinda.quickcabs;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -18,6 +19,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class LoginProcessTask extends AsyncTask<String,Void,String> {
+
+    ProgressDialog progressDialog;
+
 
     Context ctx;
     LoginProcessTask(Context ctx)
@@ -93,11 +97,14 @@ public class LoginProcessTask extends AsyncTask<String,Void,String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
+        progressDialog = ProgressDialog.show(ctx,"Please Wait",null,true,true);
+
     }
 
     @Override
     protected void onPostExecute(String result) {
 
+        progressDialog.dismiss();
         if(result!=null){
             Intent intent = new Intent(ctx, HomeActivity.class);
             intent.putExtra("username",result);
@@ -106,6 +113,7 @@ public class LoginProcessTask extends AsyncTask<String,Void,String> {
         else{
             Toast.makeText(ctx, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
         }
+
     }
 
     @Override
