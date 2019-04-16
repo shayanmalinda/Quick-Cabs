@@ -113,9 +113,8 @@ import java.net.URL;
 //            intent.putExtra("username",result);
 //            intent.putExtra("newpassword",newpassword);
 //            ctx.startActivity(intent);
-
-            PasswordChangeProcess2 p = new PasswordChangeProcess2();
-            p.resume(result,newpassword);
+            PasswordChangeProcess2 backgroundTask=new PasswordChangeProcess2(this.ctx);
+            backgroundTask.execute(result,newpassword);
         }
         else{
             Toast.makeText(ctx, "Old Password is Incorrect", Toast.LENGTH_SHORT).show();

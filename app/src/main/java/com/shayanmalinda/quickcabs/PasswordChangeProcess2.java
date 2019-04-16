@@ -1,32 +1,13 @@
 package com.shayanmalinda.quickcabs;
 
-import android.app.ProgressDialog;
+
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.math.BigInteger;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.HashMap;
+public class PasswordChangeProcess2 extends AsyncTask<String,Void,String> {
 
-public class PasswordChangeProcess2 extends AppCompatActivity {
-
-    String user, newpass;
+    String user, newpass = null;
 
     String HttpURL = "http://idexserver.tk/b05/shayan/quickcabs/login/changePassword.php";
 //    ProgressDialog progressDialog;
@@ -34,20 +15,11 @@ public class PasswordChangeProcess2 extends AppCompatActivity {
     HashMap<String,String> hashMap = new HashMap<>();
     HttpParse httpParse = new HttpParse();
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    Context ctx;
+    PasswordChangeProcess2(Context ctx)
+    {
+        this.ctx=ctx;
     }
-
-    public void resume(String username, String newpassword){
-        user = username;
-        newpass = newpassword;
-        class StudentRecordUpdateClass extends AsyncTask<String,Void,String> {
-            Context ctx;
-            StudentRecordUpdateClass(Context ctx)
-            {
-                this.ctx=ctx;
-            }
 
             @Override
             protected void onPreExecute() {
@@ -59,11 +31,7 @@ public class PasswordChangeProcess2 extends AppCompatActivity {
             @Override
             protected void onPostExecute(String httpResponseMsg) {
                 super.onPostExecute(httpResponseMsg);
-//
-//                Toast.makeText(ctx, "Password Changed", Toast.LENGTH_SHORT).show();
-//                finish();
 
-//                super.onPostExecute(httpResponseMsg);
 
 //                progressDialog.dismiss();
 
@@ -72,6 +40,8 @@ public class PasswordChangeProcess2 extends AppCompatActivity {
 
             @Override
             protected String doInBackground(String... params) {
+                user = params[0];
+                newpass = params[1];
 
                 byte[] pass = newpass.getBytes();
                 BigInteger passEncrypt = null;
@@ -91,14 +61,5 @@ public class PasswordChangeProcess2 extends AppCompatActivity {
                 finalResult = httpParse.postRequest(hashMap, HttpURL);
                 return finalResult;
             }
-        }
-
-        StudentRecordUpdateClass studentRecordUpdateClass = new StudentRecordUpdateClass(this);
-
-        studentRecordUpdateClass.execute(username,newpassword);
-    }
-
-
-
-
 }
+
